@@ -8,9 +8,10 @@ using ManeExperience.Data;
 namespace ManeExperience.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170930182703_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
@@ -64,30 +65,6 @@ namespace ManeExperience.Data.Migrations
                         .HasName("UserNameIndex");
 
                     b.ToTable("AspNetUsers");
-                });
-
-            modelBuilder.Entity("ManeExperience.Models.Events", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("EventCreated");
-
-                    b.Property<string>("EventCreatedBy");
-
-                    b.Property<DateTime>("EventDate");
-
-                    b.Property<string>("EventDetails");
-
-                    b.Property<string>("EventInfo");
-
-                    b.Property<string>("EventTime");
-
-                    b.Property<string>("EventTitle");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Events");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole", b =>

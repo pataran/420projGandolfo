@@ -1,0 +1,65 @@
+@model ManeExperience.Models.Events
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Events</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <input type="hidden" asp-for="ID" />
+        <dt>
+            @Html.DisplayNameFor(model => model.EventTitle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EventTitle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EventCreated)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EventCreated)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EventCreatedBy)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EventCreatedBy)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EventDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EventDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EventTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EventTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EventInfo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EventInfo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EventDetails)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EventDetails)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </form>
+</div>

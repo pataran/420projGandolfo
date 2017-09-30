@@ -11,6 +11,14 @@
   <PropertyGroup>
     <UserSecretsId>aspnet-ManeExperience-1611ef38-1cdd-4155-b29b-31e9557ad127</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Views\Events\Index.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Events\EventView.cshtml" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.2" />
