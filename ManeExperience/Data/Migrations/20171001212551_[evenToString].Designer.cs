@@ -8,9 +8,10 @@ using ManeExperience.Data;
 namespace ManeExperience.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171001212551_[evenToString]")]
+    partial class evenToString
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
@@ -71,7 +72,7 @@ namespace ManeExperience.Data.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<bool>("EventCheckIn");
+                    b.Property<string>("EventCheckIn");
 
                     b.Property<DateTime>("EventCreated");
 

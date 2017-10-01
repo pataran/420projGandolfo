@@ -13,6 +13,7 @@ using ManeExperience.Data;
 using ManeExperience.Models;
 using ManeExperience.Services;
 
+
 namespace ManeExperience
 {
     public class Startup
@@ -39,6 +40,7 @@ namespace ManeExperience
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var skipSSL = Configuration.GetValue<bool>("LocalTest:skipSSL");
             // Add framework services.
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
@@ -48,7 +50,33 @@ namespace ManeExperience
                 .AddDefaultTokenProviders();
 
             services.AddMvc();
-               
+
+            // Configure Identity
+            services.Configure<IdentityOptions>(options =>
+            {
+                // Password settings
+                options.Password.RequireDigit = true;
+                options.Password.RequiredLength = 8;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = true;
+                options.Password.RequireLowercase = false;
+
+                // Lockout settings
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
+                options.Lockout.MaxFailedAccessAttempts = 10;
+
+                // Cookie settings
+                options.Cookies.ApplicationCookie.ExpireTimeSpan = TimeSpan.FromDays(150);
+                options.Cookies.ApplicationCookie.LoginPath = "/Account/LogIn";
+                options.Cookies.ApplicationCookie.LogoutPath = "/Account/LogOut";
+
+                // User settings
+                options.User.RequireUniqueEmail = true;
+            });
+
+            string _testSecret = Configuration["MySecret"];
+
+
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
@@ -76,7 +104,7 @@ namespace ManeExperience
 
             app.UseStaticFiles();
 
-
+           
             app.UseIdentity();
 
             // Add external authentication middleware below. To configure them please see https://go.microsoft.com/fwlink/?LinkID=532715

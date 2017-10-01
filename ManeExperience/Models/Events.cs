@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace ManeExperience.Models
 {
     public class Events
@@ -15,5 +16,14 @@ namespace ManeExperience.Models
         public string EventTime { get; set; }
         public string EventInfo { get; set; }
         public string EventDetails { get; set; }
+        public bool EventCheckIn { get; set; }
+        //public ContactStatus Status { get; set; }
+    }
+
+    public enum ContactStatus
+    {
+        Submitted,
+        Approved,
+        Rejected
     }
 }
