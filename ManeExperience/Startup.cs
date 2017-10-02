@@ -81,8 +81,8 @@ namespace ManeExperience
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
 
-            services.AddDbContext<ManeExperienceContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("ManeExperienceContext")));
+            //services.AddDbContext<ManeExperienceContext>(options =>
+            //        options.UseSqlServer(Configuration.GetConnectionString("ManeExperienceContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -91,16 +91,17 @@ namespace ManeExperience
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            if (env.IsDevelopment())
-            {
+            //TODO: Burris: Attempt to increase output on errors after publishing.
+            //if (env.IsDevelopment())
+            //{
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
                 app.UseBrowserLink();
-            }
+            /*}
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-            }
+            }*/
 
             app.UseStaticFiles();
 

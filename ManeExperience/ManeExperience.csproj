@@ -13,6 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\ManeExperienceContext.cs" />
     <Compile Remove="Views\Events\Index.cs" />
   </ItemGroup>
 
@@ -24,6 +25,7 @@
     <None Remove="Properties\PublishProfiles\GandolfoMane - Web Deploy.pubxml" />
     <None Remove="Properties\PublishProfiles\GandolfoManeExperience - Web Deploy.pubxml" />
     <None Remove="Properties\PublishProfiles\ManeExperienceGandolfo - Web Deploy.pubxml" />
+    <None Remove="Properties\PublishProfiles\ManeMedia - Web Deploy.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
