@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using ManeMediaReMake.Data;
 using ManeMediaReMake.Models;
 using ManeMediaReMake.Services;
@@ -37,11 +38,16 @@ namespace ManeMediaReMake
             services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddMvc();
+
+            // Add Database Initializer
+            services.AddScoped<IDbInitializer, DbInitializer>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IDbInitializer dbInitializer)
         {
+            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+            loggerFactory.AddDebug();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

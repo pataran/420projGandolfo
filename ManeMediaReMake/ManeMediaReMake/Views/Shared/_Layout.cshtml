@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ManeMediaReMake</title>
+    <title>@ViewData["Title"] - Mane Experience</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -15,6 +15,30 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
+    <style>
+        .navbar{
+            background-color:#339966;
+            
+        }
+        .navbar li a .navbar .navbar-brand{
+            color: #fff !important;
+        }
+        .navbar-nav li a:hover, .navbar-nav li.active a{
+            color: #00cc66 !important;
+            background-color: #fff !important;
+        }
+        .navbar-default .navbar-toggle{
+            border-color: transparent;
+            color: #fff!important;
+        }
+        footer .glphyicon{
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #00cc66;
+        }
+
+
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -34,6 +58,7 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                     <li><a asp-area="" asp-controller="EventsModels" asp-action="Index">Events</a></li>
+                    <li><a asp-area="" asp-controller="ApplicationUsers" asp-action="Index"> Manage Users</a></li>
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>

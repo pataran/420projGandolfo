@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using ManeMediaReMake.Models;
 
+
 namespace ManeMediaReMake.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -21,8 +22,12 @@ namespace ManeMediaReMake.Data
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
+
+
         }
 
         public DbSet<ManeMediaReMake.Models.EventsModel> EventsModel { get; set; }
+
+        public DbSet<ManeMediaReMake.Models.ApplicationUser> ApplicationUser { get; set; }
     }
 }
