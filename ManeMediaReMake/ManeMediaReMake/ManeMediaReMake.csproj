@@ -23,4 +23,12 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\images\me-logo-white.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Images\" />
+  </ItemGroup>
+
 </Project>
